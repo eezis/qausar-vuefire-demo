@@ -2,7 +2,7 @@
   <q-page class="q-pa-md absolute full-width full-height column">
     <div>
       <h5>Quasar, vuefire, firebase/firestore demo</h5>
-      <q-btn label="Temp Logout - dev only" @click="logout"></q-btn>
+      <!-- <q-btn label="Temp Logout - dev only" @click="logout"></q-btn> -->
     </div>
   </q-page>
 </template>
