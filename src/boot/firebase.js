@@ -57,27 +57,34 @@ export default async ({ app, router, Vue, store }) => {
   //   }
   // })
 
-  // This approach survives a browser refresh but forces an API call on every page change
-  // so there might be a performance cost, and an actual firebase cost?
+  // simple authentication management and route-guarding
+  // when app.js is loaded (by Quasar) the AuthStateChange subsctiption is created
+  // the $loggedIn prototype allows you to reacto to state changes in the app
+  // (e.g. v-if="!this.$loggedIn") the code below -- combined with the
+  // vuefire firestore plugin will survive a user refresh of the browser
   router.beforeEach((to, from, next) => {
-    firebase.auth().onAuthStateChanged((user) => {
+    // most common use case is that the user is logged in
+    if (Vue.prototype.$loggedIn) {
+      next()
+    } else {
       const requiresAuth = to.matched.some(record => record.meta.authRequired)
-      if (user) {
-        console.log('OnAuthStateChange: SETTING AUTH TRUE')
-        Vue.prototype.$userId = user.uid
-        Vue.prototype.$loggedIn = true
-      } else {
-        console.log('OnAuthStateChange: SETTING AUTH FALSE')
-        Vue.prototype.$userId = null
-        Vue.prototype.$loggedIn = false
-      }
-
-      if (requiresAuth && !Vue.prototype.$loggedIn) {
-        router.replace('/account/login')
-      } else {
-        next()
-      }
-    })
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          console.log('OnAuthStateChange: SETTING AUTH TRUE')
+          Vue.prototype.$userId = user.uid
+          Vue.prototype.$loggedIn = true
+        } else {
+          console.log('OnAuthStateChange: SETTING AUTH FALSE')
+          Vue.prototype.$userId = null
+          Vue.prototype.$loggedIn = false
+        }
+        if (requiresAuth && !Vue.prototype.$loggedIn) {
+          router.replace('/account/login')
+        } else {
+          next()
+        }
+      })
+    }
   })
 }
 
