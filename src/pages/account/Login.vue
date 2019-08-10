@@ -117,7 +117,7 @@ export default {
         .catch(err => {
           Loading.hide()
           console.error(err.message)
-          showErrorMessage('Login Error', err.methods)
+          showErrorMessage('Login Error', err.message)
         })
     },
     submitForm () {
