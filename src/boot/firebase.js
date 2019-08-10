@@ -39,7 +39,7 @@ export default async ({ app, router, Vue, store }) => {
 
   router.beforeEach((to, from, next) => {
     // most common use case is that the user is logged in so just run next()
-    console.log('router.beforeEach')
+    console.log('router.beforeEach to: ', to.path)
     if (Vue.prototype.$loggedIn) {
       next()
     } else {
