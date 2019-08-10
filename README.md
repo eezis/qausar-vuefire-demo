@@ -50,4 +50,3 @@ quasar build
 ## To Do
 
 1. Add edit capabilities
-2. Fix up the database rules <-- that's specific to me
