@@ -62,6 +62,7 @@ export default {
   firestore () {
     return {
       // titles: db.collection('readingList').where('creator', '==', 'NLSfO8LWt8XLfexYLzOHQZ2HLus1')
+      // note, the $userID prototype is created and managed in src/boot/firebase.js
       titles: db.collection('titles').where('creator', '==', this.$userId) // .orderBy('title')
     }
   },

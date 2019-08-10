@@ -39,6 +39,7 @@
       :breakpoint="767"
       bordered
       content-class="bg-grey-2"
+      v-if="this.$loggedIn"
     >
       <q-list>
         <q-item-label header>Navigation</q-item-label>
@@ -67,7 +68,7 @@
       </q-list>
     </q-drawer>
 
-    <q-footer>
+    <q-footer v-if="this.$loggedIn">
       <q-tabs>
         <q-route-tab v-for="(nav, index) in navs" :to="nav.to" :icon="nav.icon" :label="nav.label" :key="index" />
       </q-tabs>

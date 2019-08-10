@@ -1,8 +1,9 @@
 <template>
   <q-page class="q-pa-md absolute full-width full-height column">
-    <div>
+    <div class="text-center">
       <h5>Quasar, vuefire, firebase/firestore demo</h5>
-      <!-- <q-btn label="Temp Logout - dev only" @click="logout"></q-btn> -->
+      <p class="text-body1">This is where you blabber away and encourage the user to login</p>
+      <!-- <q-btn class="q-mt-lg" label="Temp Logout - dev only" @click="logout"></q-btn> -->
     </div>
   </q-page>
 </template>
