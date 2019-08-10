@@ -23,7 +23,7 @@ export async function registerUser (formData, alias, slug) {
   // we are going to do two things:
   // 1. create the authentication record using the email and password the user entered on the
   // registratioin form
-  // 2. add the user's extra information into an accounts collection using slug as the doc id
+  // 2. add the user's extra information into a profiles collection using slug as the doc id
   // console.log(formData)
   Loading.show()
   let accountsCreated = firebaseAuth.createUserWithEmailAndPassword(formData.email, formData.password)
