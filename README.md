@@ -1,12 +1,12 @@
 # quasar-vuefire 
 
-Starter project for using Quasar with vuefire and firestore. It llustrates Firebase authentication and the use of vuefire.
+ A simple starter projet that leverages Quasar, Firebase, and vuefire. authentication and the use of vuefire.
 
 ### Authentication
 
 The code provides authentication services, including login and account creation. The authentication is persistent . . . the user stays logged in after a browser refresh.
 
-The action here happens in the src/boot/firebase.js file. I have two approaches there, one is commented out. It seems that the real quesion here is: how does one successfully handle/manage the use case of a browser refresh? 
+The action here happens in the src/boot/firebase.js file.
 
 ### vuefire
 
