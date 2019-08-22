@@ -3,20 +3,21 @@
 
     <div class="q-pa-md">
       <q-form @submit.prevent="addAState">
-        <div class="row">
+        <div class="row" style="max-width:350px;">
+          <q-input
+            v-model="formData.name"
+            label="State Name"
+            stack-label outlined
+            style="width:100%;"
+          />
           <q-input v-model="formData.abbrev"
             label="Abbreviation"
             stack-label outlined
             autofocus
             ref="abbrev"
-            class="abbrev"
+            class="abbrev q-mt-sm"
             />
-          <q-input
-            v-model="formData.name"
-            label="State Name"
-            stack-label outlined
-          />
-           <q-btn type="submit" square color="primary" icon="add" />
+           <q-btn class="q-mt-sm q-ml-sm" type="submit" square color="primary" icon="add" />
         </div>
       </q-form>
     </div>
@@ -92,6 +93,9 @@ export default {
 <style lang="stylus" scoped>
 .statelist
   max-width 600px
+
+.abbrev
+  width 30%
 
   // @media only screen and (max-width: 768px)
   //   .abbrev
