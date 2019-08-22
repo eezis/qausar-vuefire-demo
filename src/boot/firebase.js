@@ -48,11 +48,11 @@ export default async ({ app, router, Vue, store }) => {
         firebase.auth().onAuthStateChanged((user) => {
           if (user) {
             console.log('OnAuthStateChange: SETTING AUTH TRUE')
-            Vue.prototype.$userId = user.uid
+            Vue.prototype.$user = user
             Vue.prototype.$loggedIn = true
           } else {
             console.log('OnAuthStateChange: SETTING AUTH FALSE')
-            Vue.prototype.$userId = null
+            Vue.prototype.$user = null
             Vue.prototype.$loggedIn = false
           }
           if (requiresAuth && !Vue.prototype.$loggedIn) {

@@ -57,13 +57,13 @@ export default {
     }
   },
   mounted () {
-    console.log(this.$userId)
+    console.log(this.$user.uid)
   },
   firestore () {
     return {
       // titles: db.collection('readingList').where('creator', '==', 'NLSfO8LWt8XLfexYLzOHQZ2HLus1')
-      // note, the $userID prototype is created and managed in src/boot/firebase.js
-      titles: db.collection('titles').where('creator', '==', this.$userId) // .orderBy('title')
+      // note, the $user prototype is created and managed in src/boot/firebase.js
+      titles: db.collection('titles').where('creator', '==', this.$user.uid) // .orderBy('title')
     }
   },
   methods: {
@@ -79,7 +79,7 @@ export default {
         {
           title: this.formData.title,
           author: this.formData.author,
-          creator: this.$userId
+          creator: this.$user.uid
           // timestamp: new Date()
         }
       )
